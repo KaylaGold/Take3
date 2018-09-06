@@ -309,12 +309,31 @@ span.psw {
     align-items: center;
   }
 } */
+@media (min-width: 1200px) {
+.col-lg-6 {
+  margin-left: 25%;
+}
+}
 
 .list-group {
-  background: #0099ff;
   padding: 20px;
   margin-left: 35px;
   margin-right: 35px;
   text-align: left;
   font-weight: bold;
+  display: flex;
+  flex-direction: column;
+}
+
+.list-group-item {
+  padding: 25px;
+}
+
+.btn-danger {
+  float: right;
+  width: 75px;
+}
+
+div#getResultDiv {
+  background: url(../images/library.jpg);
 }

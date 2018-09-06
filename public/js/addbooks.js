@@ -56,14 +56,11 @@ $(document).ready(function() {
 			type : "GET",
 			url : "/api/mybooks",
 			success: function(result){
-				$('#getResultDiv .ul').empty();
+				$('#getResultDiv ul').empty();
 				let bookList = "";
 				$.each(result, function(i, book){
           console.log("generate li");
-          $('#getResultDiv .list-group').append(` <li class="list-group-item" data-id="${book.id}">${book.id}</li> ` 
-          + book.title + " by " + book.author + ` 
-          <button class="btn btn-danger delete" data-id="${book.id}">Delete</button> `);
-          //let deleteButton = $(`<button class="deleteBtn">`);
+          $('#getResultDiv .list-group').append(` <li class="list-group-item" data-id="${book.id}">${book.id}. ${book.title} by ${book.author} <button class="btn btn-danger float-right delete" data-id="${book.id}">Delete</button></li> `);
           
           // $('#getResultDiv .list-group').append(deleteButton);
 				});

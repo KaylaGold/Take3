@@ -62,29 +62,23 @@
                     <div class="form-group">
                         <label for="formGroupExampleInput2">Book Author</label>
                         <input type="text" class="form-control" id="author" placeholder="Author of the book">
-
+                        <!-- <button class="remove-books">Delete All Books</button> -->
+                        
                         <button type="add" id="add" class="btn btn-primary mb-2">Add Book</button>
+                        <button id="allBooks" type="button" class="btn btn-default mb-2">Inventory</button>
                     </div>
                 </form>
             </div>
             
             <div class="inventory" id="my-books">
-
-                <div id="postResultDiv">
-                </div>    
-                <br>
-                <div>
-                    <button class="remove-books">Delete All Books</button>
-                    <button id="allBooks" type="button" class="btn btn-default mb-2">Inventory</button>
-                    <div id="getResultDiv">
-                        <ul id="getResultDiv" class="list-group">
-                            <li data-id="" class="list-group-item"></li>
-
-                            </li>
-                        </ul>
-                        
-                    </div>
+                <div id="getResultDiv">
+                    <ul id="getResultDiv" class="list-group">
+                        <li data-id="" class="list-group-item"></li>
+                        <button class="btn btn-danger float-right delete" data-id=""></button>
+                        </li>
+                    </ul>
                 </div>
+            </div>
                     
 
                     <!-- <p>Book: Angels and Demons</p>
