@@ -13,6 +13,10 @@ module.exports = function(app) {
     res.sendFile(path.join(__dirname, "/../public/books.html"));
   });
 
+  app.get("/api/mybooks/:id", function(req, res) {
+    res.sendFile(path.join(__dirname, "/../public/books.html"));
+  });
+
   app.get("/wishlist", function(req, res) {
     res.sendFile(path.join(__dirname, "/../public/wish.html"));
   });

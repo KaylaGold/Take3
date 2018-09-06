@@ -26,6 +26,7 @@ $(document).ready(function() {
       contentType : "application/json",
       url : "/api/mybooks",
       data : JSON.stringify(bookData),
+      dataType: 'json',
       // success : function(book) {
       //   $("#postResultDiv").html("<p>" + "Add Successful! <br>" + "--> " + book.title + " by " + book.author + "</p>");
       // },
@@ -44,7 +45,7 @@ $(document).ready(function() {
 
   //
   //GET Request
-  $("#inv").click(function(event) {
+  $("#allBooks").click(function(event) {
     event.preventDefault();
     ajaxGet();
   });
@@ -55,44 +56,45 @@ $(document).ready(function() {
 			type : "GET",
 			url : "/api/mybooks",
 			success: function(result){
-				$('#getResultDiv').empty();
+				$('#getResultDiv .ul').empty();
 				let bookList = "";
 				$.each(result, function(i, book){
- 
-          $('#getResultDiv .list-group').append(` <li class"list-group-item" data-id="${book.id}"></li> ` 
+          console.log("generate li");
+          $('#getResultDiv .list-group').append(` <li class="list-group-item" data-id="${book.id}">${book.id}</li> ` 
           + book.title + " by " + book.author + ` 
           <button class="btn btn-danger delete" data-id="${book.id}">Delete</button> `);
           //let deleteButton = $(`<button class="deleteBtn">`);
           
           // $('#getResultDiv .list-group').append(deleteButton);
 				});
-				console.log("Success: ", );
+				console.log("Success: ", result);
 			},
 			error : function(e) {
 				console.log("ERROR: ", e);
 			}
 		});	
   }
-  let handleDeleteBtn = function() {
-    let idToDelete = $(this).parent().attr("data-id");
-    $("#getResultDiv").on("click", handleDeleteBtn);
-    ajaxDelete = { deleteBook: function (id) {
-      $.ajax({
-        type: 'DELETE',
-        url: '/api/mybooks/'+id,
-        success: function(result){
-            alert('Delete');
-        },
-        error: function(e){
-            console.log("Error: ", e);
-        }
-      });
-    }
-    }
-    ajaxDelete.deleteBook(idToDelete).then(function() {
-    ajaxGet(); 
-    });
-  };  
+  // let handleDeleteBtn = function() {
+  //   let idToDelete = $(this).parent().attr("data-id");
+  //   $("#getResultDiv ul").on("click", handleDeleteBtn);
+
+  //   ajaxDelete = { deleteBook: function (id) {
+  //     $.ajax({
+  //       type: 'DELETE',
+  //       url: '/api/mybooks/'+id,
+  //       success: function(e){
+  //           alert('Delete');
+  //       },
+  //       error: function(e){
+  //           console.log("Error: ", e);
+  //       }
+  //     });
+  //   }
+  //   }
+  //   ajaxDelete.deleteBook(idToDelete).then(function() {
+  //   ajaxGet(); 
+  //   });
+  // };  
     
 });
 
