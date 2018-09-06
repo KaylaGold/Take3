@@ -123,7 +123,7 @@ $(document).ready(function() {
   inventory = () => {
     $('#inv').on('click', function(event) {
       event.preventDefault();
-      $('.results').empty();
+      $('.getResultsDiv').empty();
       window.location = "./books.html";
     });
   };

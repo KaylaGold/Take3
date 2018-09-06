@@ -1,7 +1,7 @@
 $(document).ready(function() {
 
   //Add Book
-  $("#add, #inv").click(function(event) {
+  $("#add").click(function(event) {
     //prevent the add button from clicking via the browser
     event.preventDefault();
       
@@ -26,7 +26,6 @@ $(document).ready(function() {
       contentType : "application/json",
       url : "/api/mybooks",
       data : JSON.stringify(bookData),
-      dataType: 'json',
       // success : function(book) {
       //   $("#postResultDiv").html("<p>" + "Add Successful! <br>" + "--> " + book.title + " by " + book.author + "</p>");
       // },
@@ -47,7 +46,6 @@ $(document).ready(function() {
   //GET Request
   $("#inv").click(function(event) {
     event.preventDefault();
-    console.log("I clicked meyshel");
     ajaxGet();
   });
 
@@ -57,19 +55,18 @@ $(document).ready(function() {
 			type : "GET",
 			url : "/api/mybooks",
 			success: function(result){
-				$('#getResultDiv ul').empty();
+				$('.getResultDiv').empty();
 				let bookList = "";
 				$.each(result, function(i, book){
  
-          $('#getResultDiv .list-group').append(book.id + ". " + book.title + " by " + book.author + " <br>");
-          let deleteButton = $(`<button class="deleteBtn">`);
+          $('#getResultDiv .list-group').append(book.id + ". " + book.title + " by " + book.author + ` <button value="${book.id}">x</button> `);
+          //let deleteButton = $(`<button class="deleteBtn">`);
           
           // $('#getResultDiv .list-group').append(deleteButton);
 				});
-				console.log("Success: ", result);
+				console.log("Success: ", );
 			},
 			error : function(e) {
-				$("#getResultDiv").html("<strong>Error</strong>");
 				console.log("ERROR: ", e);
 			}
 		});	

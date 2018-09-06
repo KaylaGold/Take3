@@ -10,7 +10,7 @@ var PORT = process.env.PORT || 8080;
 // Middleware
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-app.use(express.static(_dirname + '/public'));
+app.use(express.static("public"));
 
 
 // Routes
