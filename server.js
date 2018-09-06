@@ -5,17 +5,17 @@ var bodyParser = require("body-parser");
 var db = require("./models");
 
 var app = express();
-var PORT = process.env.PORT || 3000;
+var PORT = process.env.PORT || 8080;
 
 // Middleware
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-app.use(express.static("public"));
+app.use(express.static(_dirname + '/public'));
 
 
 // Routes
-require("./routes/addbooks-api-routes")(app);
-require("./routes/htmlRoutes")(app);
+require("./routes/addbooks-api-routes.js")(app);
+require("./routes/htmlRoutes.js")(app);
 
 var syncOptions = { force: false };
 
